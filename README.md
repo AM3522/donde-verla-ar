@@ -2,7 +2,7 @@
 
 Wiki de series y películas para Argentina: resumen, plataformas donde están, idiomas (audio y subtítulos) y precio de los planes. Además calcula la combinación de plataformas más barata para una lista de títulos.
 
-**Enlace público:** _pegar acá la URL de Render al publicar_
+**Enlace público:** (https://donde-verla-ar.onrender.com)
 
 ## Probarlo en tu compu
 ```bash
