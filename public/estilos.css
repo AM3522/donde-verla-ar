@@ -1,0 +1,29 @@
+:root { --fondo: #EDF2F6; --tinta: #13222D; --suave: #4C5E6B; --linea: #C3D0DA; --acento: #1766A6; --precio: #B5540A; }
+@media (prefers-color-scheme: dark) { :root { --fondo: #0F1A22; --tinta: #E6EEF4; --suave: #9DB0BE; --linea: #2A3B47; --acento: #6DB4EB; --precio: #F0A35E; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font: 18px/1.6 "Source Serif 4", Georgia, serif; }
+h1, h2, th, button, label, input, select { font-family: "Bricolage Grotesque", system-ui, sans-serif; }
+.cab, main, footer { max-width: 68rem; margin: 0 auto; padding: 1.25rem; }
+h1 { font-size: clamp(2.6rem, 9vw, 5rem); line-height: 1; margin: 1rem 0 .5rem; letter-spacing: -.03em; }
+.cab p { max-width: 36rem; color: var(--suave); }
+#filtros { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-top: 1rem; }
+input[type=search], select { font-size: 1rem; padding: .55rem .7rem; border: 1px solid var(--linea); border-radius: 6px; background: transparent; color: inherit; }
+select option { color: #13222D; }
+main { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+@media (min-width: 60rem) { main { grid-template-columns: 1fr 20rem; align-items: start; } #lista-panel { position: sticky; top: 1rem; } }
+.ficha { border-top: 2px solid var(--tinta); padding: 1rem 0 1.5rem; }
+.ficha h2 { margin: 0; font-size: 1.7rem; }
+.meta { margin: .1rem 0 .6rem; color: var(--suave); font-style: italic; }
+.ficha p { max-width: 60ch; }
+.tabla { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: .45rem .8rem .45rem 0; border-bottom: 1px solid var(--linea); vertical-align: top; }
+.precio { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; color: var(--precio); white-space: nowrap; }
+.precio small { font-weight: 400; color: var(--suave); }
+button { font-size: 1rem; padding: .6rem 1rem; border: 0; border-radius: 6px; background: var(--acento); color: var(--fondo); cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+#resultado { margin-top: 1rem; }
+.vacio, #estado, footer { color: var(--suave); }
+#planes { grid-column: 1 / -1; }
+footer { font-size: .85rem; }
