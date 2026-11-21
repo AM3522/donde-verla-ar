@@ -41,3 +41,30 @@ async function cargarPlanes() {
 $('#filtros').addEventListener('input', cargarFichas);
 $('#filtros').addEventListener('submit', (e) => e.preventDefault());
 cargarPlanes().then(cargarFichas).catch((e) => estado(e.message));
+
+// Mi lista y combinación más barata (HU5)
+$('#fichas').addEventListener('change', (e) => {
+  const id = e.target.dataset.id;
+  if (!id) return;
+  if (e.target.checked) lista.add(id); else lista.delete(id);
+  $('#cantidad').textContent = lista.size;
+  $('#calcular').disabled = lista.size === 0;
+  $('#resultado').innerHTML = '';
+});
+
+$('#calcular').addEventListener('click', async () => {
+  const f = filtros();
+  try {
+    const r = await api('/api/combinacion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ids: [...lista], idioma: f.get('idioma') || undefined, sinAnuncios: f.get('sinAnuncios') === '1' }),
+    });
+    const nombres = r.plataformas.map((id) => $(`#plataforma option[value="${id}"]`).textContent);
+    const sin = r.sinOferta.length ? `<p class="vacio">Sin oferta hoy: ${r.sinOferta.map(esc).join(', ')}.</p>` : '';
+    $('#resultado').innerHTML = r.plataformas.length
+      ? `<p>Suscribite a <strong>${esc(nombres.join(' + '))}</strong> por <span class="precio">${peso(r.costoMensual)}</span> al mes y mirás ${r.cubiertos.length} de ${lista.size} títulos.</p>${sin}`
+      : `<p class="vacio">Ningún título de tu lista está disponible hoy.</p>${sin}`;
+    estado();
+  } catch (e) { estado(e.message); }
+});

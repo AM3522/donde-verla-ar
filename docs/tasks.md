@@ -8,5 +8,5 @@
 | T5 | Combinación más barata | Tester + Backend | RN5, RN6 | T4 | Pasan sus tests | [x] |
 | T6 | API HTTP con CORS | Tester + Backend | HU1-HU6 | T3, T4, T5 | Pasan sus tests | [x] |
 | T7 | Frontend: estructura y estilos | Frontend | HU1-HU4 | T6 | Se ve en celular y escritorio | [x] |
-| T8 | Frontend: fichas, filtros y combinación | Frontend | HU1-HU6 | T7 | Todo funciona contra la API | [ ] |
+| T8 | Frontend: fichas, filtros y combinación | Frontend | HU1-HU6 | T7 | Todo funciona contra la API | [x] |
 | T9 | README e informe | Revisor | — | T8 | Todo lo anterior marcado | [ ] |
