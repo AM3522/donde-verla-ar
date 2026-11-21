@@ -29,3 +29,32 @@ export function opciones(titulo, plataformas, imp, filtros = {}, hoy = new Date(
     .filter(Boolean)
     .sort((a, b) => a.plan.precioFinal - b.plan.precioFinal);
 }
+
+// RN5 y RN6: combinación de plataformas con mayor cobertura; ante empate, menor costo; luego, menos plataformas.
+// Prueba todos los subconjuntos (con 5 plataformas son solo 31).
+export function combinacionMasBarata(titulos, plataformas, imp, filtros = {}, hoy = new Date()) {
+  if (!titulos.length) throw new RangeError('La lista está vacía'); // RN6
+  const ofertas = titulos.map((t) => new Set(opciones(t, plataformas, imp, filtros, hoy).map((o) => o.plataforma)));
+  const precios = Object.fromEntries(plataformas.map((p) => [p.id, planMasBarato(p, imp, filtros)?.precioFinal]));
+  const ids = plataformas.map((p) => p.id).filter((id) => precios[id] !== undefined);
+  let mejor = { plataformas: [], costo: 0, cubiertos: titulos.map(() => false) };
+  const cobertura = (c) => c.cubiertos.filter(Boolean).length;
+  for (let mascara = 1; mascara < 1 << ids.length; mascara++) {
+    const elegidas = ids.filter((_, i) => mascara & (1 << i));
+    const cand = {
+      plataformas: elegidas,
+      costo: elegidas.reduce((suma, id) => suma + precios[id], 0),
+      cubiertos: ofertas.map((o) => elegidas.some((id) => o.has(id))),
+    };
+    const gana = cobertura(cand) !== cobertura(mejor) ? cobertura(cand) > cobertura(mejor)
+      : cand.costo !== mejor.costo ? cand.costo < mejor.costo
+      : cand.plataformas.length < mejor.plataformas.length;
+    if (gana) mejor = cand;
+  }
+  return {
+    plataformas: mejor.plataformas,
+    costoMensual: mejor.costo,
+    cubiertos: titulos.filter((_, i) => mejor.cubiertos[i]).map((t) => t.id),
+    sinOferta: titulos.filter((_, i) => !mejor.cubiertos[i]).map((t) => t.id),
+  };
+}
