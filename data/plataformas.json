@@ -1,0 +1,22 @@
+{
+  "actualizado": "2026-08",
+  "fuente": "iProfesional / Sitio Andino, 6 de agosto de 2026. Precios base mensuales, sin impuestos.",
+  "plataformas": [
+    { "id": "netflix", "nombre": "Netflix", "planes": [
+      { "nombre": "Básico", "base": 8999, "anuncios": false, "detalle": "1 pantalla, HD" },
+      { "nombre": "Estándar", "base": 14999, "anuncios": false, "detalle": "2 pantallas, Full HD" },
+      { "nombre": "Premium", "base": 19999, "anuncios": false, "detalle": "4 pantallas, 4K" } ] },
+    { "id": "prime", "nombre": "Prime Video", "planes": [
+      { "nombre": "Plan único", "base": 6499, "anuncios": false, "detalle": "Catálogo completo" } ] },
+    { "id": "hbomax", "nombre": "HBO Max", "planes": [
+      { "nombre": "Básico con anuncios", "base": 7390, "anuncios": true, "detalle": "Con publicidad" },
+      { "nombre": "Estándar", "base": 9590, "anuncios": false, "detalle": "Sin publicidad" },
+      { "nombre": "Platino", "base": 11490, "anuncios": false, "detalle": "Máxima calidad" } ] },
+    { "id": "disney", "nombre": "Disney+", "planes": [
+      { "nombre": "Estándar con anuncios", "base": 8263.64, "anuncios": true, "detalle": "Con publicidad" },
+      { "nombre": "Estándar", "base": 10742.98, "anuncios": false, "detalle": "Sin publicidad" },
+      { "nombre": "Premium", "base": 16528.1, "anuncios": false, "detalle": "Incluye ESPN" } ] },
+    { "id": "mubi", "nombre": "MUBI", "planes": [
+      { "nombre": "Plan único", "base": 9999, "anuncios": false, "detalle": "Cine de autor, 7 días de prueba" } ] }
+  ]
+}

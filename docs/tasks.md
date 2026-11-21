@@ -1,7 +1,7 @@
 # Tareas (ordenadas por dependencias)
 | # | Tarea | Agente | Cubre | Depende de | Terminada cuando | Estado |
 |---|---|---|---|---|---|---|
-| T1 | Datos de plataformas, planes e impuestos | Backend | RN2, HU4 | — | Los JSON cargan y tienen precios | [ ] |
+| T1 | Datos de plataformas, planes e impuestos | Backend | RN2, HU4 | — | Los JSON cargan y tienen precios | [x] |
 | T2 | Catálogo inicial de títulos | Analista | HU1, HU2 | — | 10 fichas con resumen, plataformas e idiomas | [ ] |
 | T3 | Precio final | Tester + Backend | RN2 | T1 | Pasan sus tests | [ ] |
 | T4 | Disponibilidad, plan más barato e idioma | Tester + Backend | RN1, RN3, RN4 | T1, T2 | Pasan sus tests | [ ] |
