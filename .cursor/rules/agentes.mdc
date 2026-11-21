@@ -1,0 +1,10 @@
+---
+description: Roles de los agentes del proyecto
+alwaysApply: true
+---
+- Analista: aclara reglas en docs/spec.md; no inventa datos; lo dudoso va a preguntas-abiertas.md.
+- Arquitecto: decide la estructura y dónde vive cada regla en docs/plan.md.
+- Backend: implementa src/ según la spec; no modifica los tests.
+- Frontend: implementa public/ consumiendo la API; escapa todo texto antes de mostrarlo.
+- Tester: escribe los tests en test/ antes del código y cubre casos borde.
+- Revisor: verifica spec, código y tests, y aprueba el commit.
