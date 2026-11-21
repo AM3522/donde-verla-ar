@@ -1,0 +1,9 @@
+{
+  "name": "donde-verla-ar",
+  "version": "1.0.0",
+  "description": "Wiki de series y películas: dónde verlas en Argentina, idiomas y precio de los planes",
+  "type": "module",
+  "scripts": { "start": "node src/servidor.js", "test": "node --test" },
+  "engines": { "node": ">=20" },
+  "license": "MIT"
+}
